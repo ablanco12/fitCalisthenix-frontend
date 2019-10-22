@@ -4,9 +4,16 @@ import React, { Component } from "react";
 class UserProfile extends Component {
   state = {};
   render() {
+    // console.log("userprofile props", this.props.myData);
     return (
-      <div className="user-profile">
-        
+      <div>
+        <div className="user-profile">
+          <ul>
+            {this.props.myData.map(data => (
+              <p key={data.id}>{data.name}</p>
+            ))}
+          </ul>
+        </div>
       </div>
     );
   }
