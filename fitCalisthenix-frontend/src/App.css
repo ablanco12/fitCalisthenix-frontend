@@ -45,3 +45,18 @@ header .container {
   position: relative;
   z-index: 2;
 }
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.user-profile {
+  background-color: #282c34;
+  color: #09d3ac;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

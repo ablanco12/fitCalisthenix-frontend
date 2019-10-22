@@ -52,14 +52,14 @@ const NavBar = () => {
                   placeholder="don't tell!"
                 />
               </FormGroup>
-              <Button>Submit</Button>
+              <Button>Login</Button>
             </Form>
 
             <NavItem>
               <NavLink href="/signup">SignUp</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/">Home</NavLink>
+              <NavLink href="/profile">Your Profile</NavLink>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>

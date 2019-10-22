@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, FormGroup, Label, Input, FormText } from "reactstrap";
+import { Form, FormGroup, Label, Input, FormText, Button } from "reactstrap";
 
 class SignUpPage extends Component {
   render() {
@@ -13,7 +13,7 @@ class SignUpPage extends Component {
               type="name"
               name="name"
               id="exampleName"
-              placeholder="name"
+              placeholder="Enter your name"
             />
           </FormGroup>
           <FormGroup>
@@ -31,101 +31,37 @@ class SignUpPage extends Component {
               type="password"
               name="password"
               id="examplePassword"
-              placeholder="password "
+              placeholder="Enter a password"
             />
           </FormGroup>
-          {/* <FormGroup>
-            <Label for="exampleUrl">Url</Label>
+          <FormGroup>
+            <Label for="confirmationPassword">Confirm Password</Label>
             <Input
-              type="url"
-              name="url"
-              id="exampleUrl"
-              placeholder="url placeholder"
+              type="password"
+              name="Confirm password"
+              id="confirmationPassword"
+              placeholder="Enter password again"
             />
-          </FormGroup> */}
+          </FormGroup>
           <FormGroup>
             <Label for="exampleNumber">AGE</Label>
             <Input
               type="number"
               name="number"
               id="exampleNumber"
-              placeholder="number placeholder"
+              placeholder="Enter your age"
             />
           </FormGroup>
-          {/* <FormGroup>
-            <Label for="exampleDatetime">Datetime</Label>
-            <Input
-              type="datetime"
-              name="datetime"
-              id="exampleDatetime"
-              placeholder="datetime placeholder"
-            />
-          </FormGroup> */}
-          {/* <FormGroup>
-            <Label for="exampleDate">Date</Label>
-            <Input
-              type="date"
-              name="date"
-              id="exampleDate"
-              placeholder="date placeholder"
-            />
-          </FormGroup> */}
-          {/* <FormGroup>
-            <Label for="exampleTime">Time</Label>
-            <Input
-              type="time"
-              name="time"
-              id="exampleTime"
-              placeholder="time placeholder"
-            />
-          </FormGroup> */}
-          {/* <FormGroup>
-            <Label for="exampleColor">Color</Label>
-            <Input
-              type="color"
-              name="color"
-              id="exampleColor"
-              placeholder="color placeholder"
-            />
-          </FormGroup> */}
-          {/* <FormGroup>
-            <Label for="exampleSearch">Search</Label>
-            <Input
-              type="search"
-              name="search"
-              id="exampleSearch"
-              placeholder="search placeholder"
-            />
-          </FormGroup> */}
+
           <FormGroup>
-            <Label for="exampleSelect">Select Experience Level</Label>
+            <Label for="exampleSelect">Select Fitness Experience</Label>
             <Input type="select" name="select" id="exampleSelect">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+              <option>1 - Beginner</option>
+              <option>2 - Intermediate</option>
+              <option>3 - Advanced</option>
             </Input>
           </FormGroup>
-          <FormGroup>
-            <Label for="exampleSelectMulti">Select Multiple</Label>
-            <Input
-              type="select"
-              name="selectMulti"
-              id="exampleSelectMulti"
-              multiple
-            >
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </Input>
-          </FormGroup>
-          <FormGroup>
-            <Label for="exampleText">Text Area</Label>
-            <Input type="textarea" name="text" id="exampleText" />
-          </FormGroup>
+
           <FormGroup>
             <Label for="exampleFile">Upload Selfie</Label>
             <Input type="file" name="file" id="exampleFile" />
@@ -133,17 +69,11 @@ class SignUpPage extends Component {
               This will be your photo for motivation.
             </FormText>
           </FormGroup>
-          <FormGroup check>
-            <Label check>
-              <Input type="radio" /> Option one is this and that—be sure to
-              include why it's great
-            </Label>
-          </FormGroup>
-          <FormGroup check>
-            <Label check>
-              <Input type="checkbox" /> Check me out
-            </Label>
-          </FormGroup>
+
+          <Button color="primary" size="lg" block>
+            Create Account
+          </Button>
+          <br></br>
         </Form>
       </div>
     );
