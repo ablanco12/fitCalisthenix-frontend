@@ -18,9 +18,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
         </div>
 
-        <div className="jumbotron">
-          <h1>THIS IS THE MOTHER FUCKING PROFILE</h1>
-        </div>
+        
       </div>
     );
   }
