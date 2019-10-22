@@ -6,7 +6,7 @@ class SignUpPage extends Component {
     return (
       <div className="signup-form-container">
         <br></br>
-        <Form>
+        <Form onSubmit={this.props.handleSubmit}>
           <FormGroup>
             <Label for="name">Your Name</Label>
             <Input
@@ -14,6 +14,7 @@ class SignUpPage extends Component {
               name="name"
               id="exampleName"
               placeholder="Enter your name"
+              onChange={this.props.handleChange}
             />
           </FormGroup>
           <FormGroup>
@@ -23,6 +24,7 @@ class SignUpPage extends Component {
               name="email"
               id="exampleEmail"
               placeholder="Enter your email"
+              onChange={this.props.handleChange}
             />
           </FormGroup>
           <FormGroup>
@@ -32,6 +34,7 @@ class SignUpPage extends Component {
               name="password"
               id="examplePassword"
               placeholder="Enter a password"
+              onChange={this.props.handleChange}
             />
           </FormGroup>
           <FormGroup>
@@ -41,6 +44,7 @@ class SignUpPage extends Component {
               name="Confirm password"
               id="confirmationPassword"
               placeholder="Enter password again"
+              onChange={this.props.handleChange}
             />
           </FormGroup>
           <FormGroup>
@@ -50,6 +54,7 @@ class SignUpPage extends Component {
               name="number"
               id="exampleNumber"
               placeholder="Enter your age"
+              onChange={this.props.handleChange}
             />
           </FormGroup>
 
