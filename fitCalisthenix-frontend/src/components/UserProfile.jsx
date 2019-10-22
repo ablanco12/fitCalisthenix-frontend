@@ -6,6 +6,7 @@ import WorkoutsContainer from "./WorkoutsContainer";
 class UserProfile extends Component {
   state = {};
   render() {
+    // console.log("userprofile props", this.props.myData);
     return (
       <div className="user-profile">
         <br></br>
@@ -19,6 +20,14 @@ class UserProfile extends Component {
             <div>
               <WorkoutsContainer />
             </div>
+          </div>
+
+          <div className="user-profile">
+            <ul>
+              {this.props.myData.map(data => (
+                <p key={data.id}>{data.name}</p>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
