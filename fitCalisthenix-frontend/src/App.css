@@ -60,3 +60,13 @@ header .container {
   align-items: center;
   justify-content: center;
 }
+
+.ui.grid {
+  padding: 0px 20px;
+}
+
+div .row {
+  justify-content: center;
+  align-items: center;
+  background-color: #282c34;
+}
