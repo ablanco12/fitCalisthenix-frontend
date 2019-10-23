@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import { Form, FormGroup, Label, Input, FormText, Button } from "reactstrap";
+import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 
 class SignUpPage extends Component {
   render() {
+    const { handleSubmit, handleChange, accounts } = this.props;
     return (
       <div className="signup-form-container">
         <br></br>
-        <Form onSubmit={this.props.handleSubmit}>
+        <Form onSubmit={handleSubmit}>
           <FormGroup>
             <Label for="name">Your Name</Label>
             <Input
@@ -14,7 +15,8 @@ class SignUpPage extends Component {
               name="name"
               id="exampleName"
               placeholder="Enter your name"
-              onChange={this.props.handleChange}
+              onChange={handleChange}
+              value={accounts.name}
             />
           </FormGroup>
           <FormGroup>
@@ -22,9 +24,10 @@ class SignUpPage extends Component {
             <Input
               type="email"
               name="email"
-              id="exampleEmail"
+              id="email"
               placeholder="Enter your email"
-              onChange={this.props.handleChange}
+              onChange={handleChange}
+              value={accounts.email}
             />
           </FormGroup>
           <FormGroup>
@@ -32,47 +35,55 @@ class SignUpPage extends Component {
             <Input
               type="password"
               name="password"
-              id="examplePassword"
+              id="password"
               placeholder="Enter a password"
-              onChange={this.props.handleChange}
+              onChange={handleChange}
+              value={accounts.password}
             />
           </FormGroup>
           <FormGroup>
             <Label for="confirmationPassword">Confirm Password</Label>
             <Input
               type="password"
-              name="Confirm password"
+              name="confirmationPassword"
               id="confirmationPassword"
               placeholder="Enter password again"
-              onChange={this.props.handleChange}
+              onChange={handleChange}
+              value={accounts.password}
             />
           </FormGroup>
           <FormGroup>
             <Label for="exampleNumber">AGE</Label>
             <Input
               type="number"
-              name="number"
-              id="exampleNumber"
+              name="age"
+              id="age"
               placeholder="Enter your age"
-              onChange={this.props.handleChange}
+              onChange={handleChange}
+              value={accounts.age}
             />
           </FormGroup>
-
           <FormGroup>
-            <Label for="exampleSelect">Select Fitness Experience</Label>
-            <Input type="select" name="select" id="exampleSelect">
-              <option>1 - Beginner</option>
-              <option>2 - Intermediate</option>
-              <option>3 - Advanced</option>
-            </Input>
+            <Label for="height">Height</Label>
+            <Input
+              type="number"
+              name="height"
+              id="height"
+              placeholder="Enter your height"
+              onChange={handleChange}
+              value={accounts.height}
+            />
           </FormGroup>
-
           <FormGroup>
-            <Label for="exampleFile">Upload Selfie</Label>
-            <Input type="file" name="file" id="exampleFile" />
-            <FormText color="muted">
-              This will be your photo for motivation.
-            </FormText>
+            <Label for="weight">Weight</Label>
+            <Input
+              type="number"
+              name="weight"
+              id="weight"
+              placeholder="Enter your weight"
+              onChange={handleChange}
+              value={accounts.weight}
+            />
           </FormGroup>
 
           <Button color="primary" size="lg" block>

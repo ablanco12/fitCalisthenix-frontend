@@ -2,7 +2,6 @@ import React, { Component } from "react";
 // import { Button } from "reactstrap";
 
 class UserProfile extends Component {
-  state = {};
   render() {
     // console.log("userprofile props", this.props.myData);
     return (
@@ -10,7 +9,7 @@ class UserProfile extends Component {
         <div className="user-profile">
           <ul>
             {this.props.myData.map(data => (
-              <p key={data.id}>{data.name}</p>
+              <p key={data.id}> data={data.name}</p>
             ))}
           </ul>
         </div>

@@ -9,7 +9,15 @@ import Home from "./components/Home";
 
 class App extends Component {
   state = {
-    myData: []
+    myData: [],
+    accounts: {
+      name: "",
+      email: "",
+      password: "",
+      age: "",
+      height: "",
+      weight: ""
+    }
   };
   fetchingData = () => {
     fetch("http://localhost:3000/exercises")
@@ -26,8 +34,10 @@ class App extends Component {
     this.fetchingData();
   }
 
-  handleSubmit = output => {
-    console.log("this is the stuff you have on form", output);
+  handleSubmit = event => {
+    event.preventDefault();
+    const { accounts } = this.state;
+    // console.log("this is the stuff you have on form", event);
     fetch("http://localhost:3000/users", {
       method: "POST",
       headers: {
@@ -36,26 +46,28 @@ class App extends Component {
       },
       body: JSON.stringify({
         user: {
-          username: "guy",
-          password: "hi",
-          bio: "King of Flavortown, USA",
-          avatar:
-            "https://upload.wikimedia.org/wikipedia/commons/9/9a/Guy_Fieri_at_Guantanamo_2.jpg"
+          name: accounts.name,
+          email: accounts.email,
+          password: accounts.password,
+          age: accounts.age,
+          height: accounts.height,
+          weight: accounts.weight
         }
       })
     })
       .then(r => r.json())
-      .then(console.log);
+      .then(r => console.log("successfully created an account", r));
   };
 
   handleChange = event => {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
+    const accounts = { ...this.state.accounts };
+    accounts[event.currentTarget.name] = event.currentTarget.value;
+    this.setState({ accounts });
   };
 
   render() {
     // console.log("app state", this.state);
+    const { myData, accounts } = this.state;
     return (
       <div className="App">
         <NavBar />
@@ -63,12 +75,18 @@ class App extends Component {
           <Route
             exact
             path="/profile"
-            render={() => <UserProfile myData={this.state.myData} />}
+            render={() => <UserProfile myData={myData} />}
           />
           <Route
             exact
             path="/signup"
-            render={() => <SignUpPage handleSubmit={this.handleSubmit} />}
+            render={() => (
+              <SignUpPage
+                handleSubmit={this.handleSubmit}
+                handleChange={this.handleChange}
+                accounts={accounts}
+              />
+            )}
           />
           <Route exact path="/" component={Home} />
         </div>
