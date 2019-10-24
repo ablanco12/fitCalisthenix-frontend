@@ -9,7 +9,8 @@ import Home from "./components/Home";
 
 class App extends Component {
   state = {
-    myData: []
+    myData: [],
+    exercise: []
   };
   fetchingData = () => {
     fetch("http://localhost:3000/exercises")
@@ -54,6 +55,22 @@ class App extends Component {
     });
   };
 
+  handleClick = data => {
+    const exerciseAfterAdd = this.state.exercise.concat(data);
+    console.log(this.state.exercise);
+    this.setState({
+      exercise: exerciseAfterAdd
+    });
+  };
+  handleRemoveClick = data => {
+    let filteredExercises = this.state.exercise.filter(
+      fexer => fexer.id !== data.id
+    );
+    console.log(this.state.exercise);
+    this.setState({
+      exercise: filteredExercises
+    });
+  };
   render() {
     // console.log("app state", this.state);
     return (
@@ -63,7 +80,14 @@ class App extends Component {
           <Route
             exact
             path="/profile"
-            render={() => <UserProfile myData={this.state.myData} />}
+            render={() => (
+              <UserProfile
+                myData={this.state.myData}
+                exercise={this.state.exercise}
+                handleClick={this.handleClick}
+                handleRemoveClick={this.handleRemoveClick}
+              />
+            )}
           />
           <Route
             exact
@@ -72,8 +96,6 @@ class App extends Component {
           />
           <Route exact path="/" component={Home} />
         </div>
-
-        
       </div>
     );
   }
