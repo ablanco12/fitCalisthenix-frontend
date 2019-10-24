@@ -1,33 +1,37 @@
 import React, { Component } from "react";
 // import { Button } from "reactstrap";
 import ExperienceContainer from "./ExperienceContainer";
-import WorkoutsContainer from "./WorkoutsContainer";
+import ExerciseContainer from "./ExerciseContainer";
+import CurrentWorkout from "./CurrentWorkout";
 
 class UserProfile extends Component {
   state = {};
+
   render() {
-    // console.log("userprofile props", this.props.myData);
+    console.log("userprofile props", this.props.myData);
+
     return (
       <div className="user-profile">
         <br></br>
         <div className="jumbotron">
-          <h1>Choose your level of experience</h1>
           <div>
             <ExperienceContainer />
           </div>
+          <br></br>
           <div className="jumbotron">
-            <h1>Workouts</h1>
-            <div>
-              <WorkoutsContainer />
-            </div>
+            <CurrentWorkout
+              exercise={this.props.exercise}
+              handleRemoveClick={this.props.handleRemoveClick}
+            />
           </div>
-
-          <div className="user-profile">
-            <ul>
-              {this.props.myData.map(data => (
-                <p key={data.id}>{data.name}</p>
-              ))}
-            </ul>
+          <div className="jumbotron">
+            <h1>EXERCISES</h1>
+            <div>
+              <ExerciseContainer
+                myData={this.props.myData}
+                handleClick={this.props.handleClick}
+              />
+            </div>
           </div>
         </div>
       </div>
