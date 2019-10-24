@@ -5,13 +5,16 @@ import ExerciseContainer from "./ExerciseContainer";
 import CurrentWorkout from "./CurrentWorkout";
 
 class UserProfile extends Component {
-  state = {};
-
   render() {
-    console.log("userprofile props", this.props.myData);
+    console.log("userprofile props", this.props.current_user);
 
     return (
       <div className="user-profile">
+        {window.localStorage.getItem("username") ? (
+          <h1> {window.localStorage.getItem("username")}</h1>
+        ) : (
+          <h1>Not logged in, aww</h1>
+        )}
         <br></br>
         <div className="jumbotron">
           <div>
