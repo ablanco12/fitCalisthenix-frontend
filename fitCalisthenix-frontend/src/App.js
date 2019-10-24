@@ -27,7 +27,8 @@ class App extends Component {
       password: ""
     },
     loggedin: false,
-    current_user: ""
+    current_user: "",
+    exercise: []
   };
   fetchingData = () => {
     fetch("http://localhost:3000/exercises")
