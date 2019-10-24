@@ -4,14 +4,15 @@ import React, { Component } from "react";
 class UserProfile extends Component {
   render() {
     // console.log("userprofile props", this.props.myData);
+    console.log("accounts", this.props.current_user);
     return (
       <div>
         <div className="user-profile">
-          <ul>
-            {this.props.myData.map(data => (
-              <p key={data.id}> data={data.name}</p>
-            ))}
-          </ul>
+          {window.localStorage.getItem("username") ? (
+            <h1> {window.localStorage.getItem("username")}</h1>
+          ) : (
+            <h1>Not logged in, aww</h1>
+          )}
         </div>
       </div>
     );

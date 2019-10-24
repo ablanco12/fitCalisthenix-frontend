@@ -20,6 +20,17 @@ class SignUpPage extends Component {
             />
           </FormGroup>
           <FormGroup>
+            <Label for="username">Username</Label>
+            <Input
+              type="username"
+              name="username"
+              id="username"
+              placeholder="Enter your email"
+              onChange={handleChange}
+              value={accounts.username}
+            />
+          </FormGroup>
+          <FormGroup>
             <Label for="exampleEmail">Email</Label>
             <Input
               type="email"
@@ -49,7 +60,7 @@ class SignUpPage extends Component {
               id="confirmationPassword"
               placeholder="Enter password again"
               onChange={handleChange}
-              value={accounts.password}
+              value={accounts.password_digest}
             />
           </FormGroup>
           <FormGroup>
