@@ -13,6 +13,7 @@ import {
   Nav,
   NavItem
 } from "reactstrap";
+
 const NavBar = props => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);

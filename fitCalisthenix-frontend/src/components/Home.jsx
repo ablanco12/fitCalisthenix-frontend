@@ -8,7 +8,7 @@ class Home extends Component {
       <div>
         {/* image must be switched for local use */}
 
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo} className="Home-logo" alt="logo" />
         <p className="App-link">fitCalisthenix</p>
       </div>
     );

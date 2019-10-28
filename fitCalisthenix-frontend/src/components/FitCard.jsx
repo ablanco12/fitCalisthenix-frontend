@@ -16,25 +16,22 @@ class FitCard extends Component {
     `;
     const { exercise } = this.props;
     return (
-      <div className="ui column">
-        <HoverText>
-          <div
-            className="ui card"
-            key={exercise.id}
-            onClick={() => this.props.handleClick(exercise)}
-          >
+      <div className="col-md-5">
+        <div
+          className="ui card"
+          onClick={() => this.props.handleClickFitCard(exercise)}
+        >
+          <HoverText>
             <div className="image">
-              <img alt="oh no!" src={exercise.image_url} />
+              <img
+                style={{ clear: "both", width: "100%" }}
+                alt="oh no!"
+                src={exercise.image_url}
+              />
             </div>
-            <div className="content">
-              <div className="header">{exercise.name}</div>
-
-              <div className="meta text-wrap">
-                {/* <small>{bot.catchphrase}</small> */}
-              </div>
-            </div>
-          </div>
-        </HoverText>
+            <div className="header">{exercise.name}</div>
+          </HoverText>
+        </div>
       </div>
     );
   }

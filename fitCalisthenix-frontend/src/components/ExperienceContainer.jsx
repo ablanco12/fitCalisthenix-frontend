@@ -5,29 +5,32 @@ class ExperienceContainer extends Component {
   state = {};
   render() {
     return (
-      <div className="ui three column grid">
-        <header>
-          <img
-            src="https://images-eu.ssl-images-amazon.com/images/I/61GaeCfvQnL.jpg"
-            className="App-logo"
-            alt="logo"
-          />
-        </header>
+      <div>
+        <div className="jumbotron">
+          <header>
+            <img
+              src="https://images-eu.ssl-images-amazon.com/images/I/61GaeCfvQnL.jpg"
+              className="App-logo"
+              alt="logo"
+            />
+          </header>
+        </div>
+
         <div className="row">
-          <div className="beginner-card">
-            <div class="position-absolute p-3">
-              <span class="badge badge-dark rounded-lg">Beginner</span>
+          <div className="card">
+            <div className="position-absolute p-3">
+              <span className="badge badge-dark rounded-lg">Beginner</span>
             </div>
             <img
               className="card-img-top"
               src="https://res.cloudinary.com/thenx-production/image/upload/w_450/v1558975663/programs/45/1558975654.jpg"
               alt="oh no"
             />
-            <div class="exercise-card-overlay card-img-overlay-gradient"></div>
+            <div className="exercise-card-overlay card-img-overlay-gradient"></div>
           </div>
-          <div className="intermediate-card">
-            <div class="position-absolute p-3">
-              <span class="badge badge-dark rounded-lg">Intermediate</span>
+          <div className="card">
+            <div className="position-absolute p-3">
+              <span className="badge badge-dark rounded-lg">Intermediate</span>
             </div>
             <img
               className="card-img-top"
@@ -35,9 +38,9 @@ class ExperienceContainer extends Component {
               alt="oh no"
             />
           </div>
-          <div className="advanced-card">
-            <div class="position-absolute p-3">
-              <span class="badge badge-dark rounded-lg">Advanced</span>
+          <div className="card">
+            <div className="position-absolute p-3">
+              <span className="badge badge-dark rounded-lg">Advanced</span>
             </div>
             <img
               className="card-img-top"
@@ -46,6 +49,7 @@ class ExperienceContainer extends Component {
             />
           </div>
         </div>
+
         {/* <div>
           <img
             className="card-img-top"

@@ -26,9 +26,10 @@ class App extends Component {
       username: "",
       password: ""
     },
-    loggedin: false,
+    loggedin: true,
     current_user: "",
-    exercise: []
+    exercise: [],
+    click: false
   };
   fetchingData = () => {
     fetch("http://localhost:3000/exercises")
@@ -36,13 +37,15 @@ class App extends Component {
       .then(data => {
         // console.log("data", data);
         this.setState({
-          myData: data
+          myData: data,
+          loggedin: true
         });
       });
   };
 
   componentDidMount() {
-    if (this.state.logedin) {
+    console.log("this.state.component >>> ", this.state.loggedin);
+    if (this.state.loggedin) {
       this.fetchingData();
     }
   }
@@ -86,9 +89,9 @@ class App extends Component {
   };
 
   handleClick = event => {
-    console.log("login", this.state.login);
-    console.log("thiis hits", event);
-    event.preventDefault();
+    // console.log("login", this.state.login);
+    // console.log("thiis hits", event);
+    // event.preventDefault();
     const configObj = {
       method: "POST",
       headers: {
@@ -114,7 +117,8 @@ class App extends Component {
           login: {
             username: "",
             password: ""
-          }
+          },
+          loggedin: true
         });
       });
   };
@@ -125,11 +129,31 @@ class App extends Component {
     this.props.history.push("/home");
   };
 
+  handleClickFitCard = exercise => {
+    const exerciseAfterAdd = this.state.exercise.concat(exercise);
+    console.log(this.state.exercise);
+    this.setState({
+      exercise: exerciseAfterAdd,
+      click: true
+    });
+  };
+
+  handleRemoveClick = exercise => {
+    let filteredExercises = this.state.exercise.filter(
+      fexer => fexer.id !== exercise.id
+    );
+    console.log(this.state.exercise);
+    this.setState({
+      exercise: filteredExercises
+    });
+  };
+
   render() {
-    // // console.log("app state", this.state);
+    // console.log("click", this.state.click);
     // console.log("this.state.loggedin", this.state.loggedin);
+    console.log("exercises", this.state.myData);
     // console.log("this.state.current_user", this.state.current_user);
-    const { myData, accounts, current_user } = this.state;
+    const { myData, accounts, current_user, exercise, click } = this.state;
     return (
       <div className="App">
         <NavBar
@@ -143,9 +167,13 @@ class App extends Component {
             path="/profile"
             render={() => (
               <UserProfile
-                myData={myData}
+                exercises={myData}
+                click={click}
+                exercise={exercise}
                 accounts={accounts}
                 current_user={current_user}
+                handleRemoveClick={this.handleRemoveClick}
+                handleClickFitCard={this.handleClickFitCard}
               />
             )}
           />
@@ -161,10 +189,6 @@ class App extends Component {
           />
           <Route path="/" component={Home} />
         </div>
-
-        {/* <div className="jumbotron">
-          <h1>THIS IS THE MOTHER FUCKING PROFILE</h1>
-        </div> */}
       </div>
     );
   }

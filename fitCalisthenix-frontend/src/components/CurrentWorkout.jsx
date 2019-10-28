@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import FitCard from "./FitCard";
 import { Button } from "reactstrap";
 import StopWatch from "./StopWatch";
-import CurrentMuscleGroup from "./CurrentMuscleGroup";
+// import CurrentMuscleGroup from "./CurrentMuscleGroup";
 
 class CurrentWorkout extends Component {
   state = {
@@ -29,7 +29,7 @@ class CurrentWorkout extends Component {
     const exercise = this.props.exercise;
 
     return (
-      <div className="ui three column grid">
+      <div className="">
         <h1>CURRENT CIRCUIT</h1>
 
         <div className="row">
@@ -37,7 +37,7 @@ class CurrentWorkout extends Component {
             <FitCard
               key={exercise.id}
               exercise={exercise}
-              handleClick={this.props.handleRemoveClick}
+              handleClickFitCard={this.props.handleRemoveClick}
             />
           ))}
 
@@ -61,9 +61,6 @@ class CurrentWorkout extends Component {
           </div>
           <div>
             <StopWatch status={false} runningTime={0} />
-          </div>
-          <div>
-            <CurrentMuscleGroup />
           </div>
         </div>
       </div>
