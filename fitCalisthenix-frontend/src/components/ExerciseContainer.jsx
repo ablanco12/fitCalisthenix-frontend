@@ -1,17 +1,16 @@
 import React, { Component } from "react";
 import FitCard from "./FitCard";
 
-
 class ExerciseContainer extends Component {
   state = {};
   render() {
-    const myData = this.props.myData;
+    const exercises = this.props.exercises;
     // console.log(myData);
-    
+
     return (
       <div className="ui three column grid">
         <div className="row">
-          {myData.map(exercise => (
+          {exercises.map(exercise => (
             <FitCard
               key={exercise.id}
               name={exercise.name}

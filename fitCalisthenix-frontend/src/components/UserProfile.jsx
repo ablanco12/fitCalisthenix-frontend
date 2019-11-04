@@ -23,7 +23,7 @@ class UserProfile extends Component {
           <br></br>
           <div className="jumbotron">
             <CurrentWorkout
-              exercise={this.props.exercise}
+              exercises={this.props.exercises}
               handleRemoveClick={this.props.handleRemoveClick}
             />
           </div>
@@ -31,7 +31,7 @@ class UserProfile extends Component {
             <h1>EXERCISES</h1>
             <div>
               <ExerciseContainer
-                myData={this.props.myData}
+                exercises={this.props.exercises}
                 handleClick={this.props.handleClick}
               />
             </div>

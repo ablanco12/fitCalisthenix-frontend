@@ -14,6 +14,7 @@ class FitCard extends Component {
         cursor: pointer;
       }
     `;
+
     const { exercise } = this.props;
     return (
       <div className="ui column">

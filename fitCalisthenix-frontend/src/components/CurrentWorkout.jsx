@@ -26,14 +26,14 @@ class CurrentWorkout extends Component {
 
   render() {
     console.log("this is my props", this.props);
-    const exercise = this.props.exercise;
+    const { exercises } = this.props;
 
     return (
       <div className="ui three column grid">
         <h1>CURRENT CIRCUIT</h1>
 
         <div className="row">
-          {exercise.map(exercise => (
+          {exercises.map(exercise => (
             <FitCard
               key={exercise.id}
               exercise={exercise}

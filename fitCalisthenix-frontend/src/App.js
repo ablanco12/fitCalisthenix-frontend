@@ -143,7 +143,7 @@ class App extends Component {
             path="/profile"
             render={() => (
               <UserProfile
-                myData={myData}
+                exercises={myData}
                 accounts={accounts}
                 current_user={current_user}
               />
